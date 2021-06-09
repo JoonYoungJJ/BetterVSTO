@@ -1,0 +1,12 @@
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\bin\Debug\VSTO_Base.dll
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\bin\Debug\VSTO_Base.pdb
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\bin\Debug\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\bin\Debug\Microsoft.WindowsAPICodePack.Sensors.dll
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\obj\Debug\VSTO_Base.csproj.AssemblyReference.cache
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\obj\Debug\VSTO_Base.csproj.CoreCompileInputs.cache
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\obj\Debug\VSTO_Base.csproj.CopyComplete
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\obj\Debug\VSTO_Base.dll
+C:\Users\sncru\OneDrive\Documents\GitHub\BetterVSTO\VSTO_Base\VSTO_Base\obj\Debug\VSTO_Base.pdb

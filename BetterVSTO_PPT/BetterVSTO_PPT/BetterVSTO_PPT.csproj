@@ -1,0 +1,355 @@
+﻿<Project ToolsVersion="16.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props" Condition="Exists('..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--
+    This section defines project-level properties.
+
+    AssemblyName
+      Name of the output assembly.
+    Configuration
+      Specifies a default value for debug.
+    OutputType
+      Must be "Library" for VSTO.
+    Platform
+      Specifies what CPU the output of this project can run on.
+    NoStandardLibraries
+      Set to "false" for VSTO.
+    RootNamespace
+      In C#, this specifies the namespace given to new files. In VB, all objects are
+      wrapped in this namespace at runtime.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41BFEEAD-DBA7-4A8B-AD88-F0B76143E20C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>BetterVSTO_PPT</RootNamespace>
+    <AssemblyName>BetterVSTO_PPT</AssemblyName>
+    <LoadBehavior>3</LoadBehavior>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <DefineConstants>VSTO40</DefineConstants>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>HomeSite</BootstrapperComponentsLocation>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <!--
+      OfficeApplication
+        Add-in host application
+    -->
+    <OfficeApplication>PowerPoint</OfficeApplication>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Debug" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Release" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!--
+    This section specifies references for the project.
+  -->
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="PropertyChanged, Version=3.3.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.3.3.3\lib\net40\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Tools.Common.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <Private>False</Private>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <Private>False</Private>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <!--
+    This section defines the user source files that are part of the project.
+     
+    A "Compile" element specifies a source file to compile.
+    An "EmbeddedResource" element specifies an .resx file for embedded resources.
+    A "None" element specifies a file that is not to be passed to the compiler (for instance, 
+    a text file or XML file).
+    The "AppDesigner" element specifies the directory where the application properties files
+    can be found.
+  -->
+  <ItemGroup>
+    <Compile Include="Menu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem\Find_And_Change\FindAndChange.xaml.cs">
+      <DependentUpon>FindAndChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuItem\Find_And_Change\FindAndChange_Host.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MenuItem\Find_And_Change\FindAndChange_Host.Designer.cs">
+      <DependentUpon>FindAndChange_Host.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuItem\Find_And_Change\FindAndChange_Host.resx">
+      <DependentUpon>FindAndChange_Host.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="BetterVSTO_PPT_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DokleysControls.csproj" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ThisAddIn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="ThisAddIn.Designer.xml">
+      <DependentUpon>ThisAddIn.cs</DependentUpon>
+    </None>
+    <Compile Include="ThisAddIn.Designer.cs">
+      <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\AbstractAssociation_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ASX_Link_blue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ColorPalette_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\AutoTrade_JoonYoung\DokleysStocks\DokleysStockNew\DokleysControls\DokleysControls.csproj">
+      <Project>{c8fa2963-f5ba-45aa-97ea-e4bd22259fad}</Project>
+      <Name>DokleysControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VSTO_Base\VSTO_Base\VSTO_Base.csproj">
+      <Project>{d51db3a1-700b-4cee-96e6-24de3a063bf9}</Project>
+      <Name>VSTO_Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ColorDialog_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FindInFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhraseTopic_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RegularExpression_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Open_blue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Previous_blue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Next_blue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ASX_Run_blue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ForwardsCommand_linkBlue_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HotSpot_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hourglass_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InkBrush_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IntellisenseLightBulb_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InvokeTable_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LikeFilled_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dialog_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\String_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backwards_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forwards_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MenuItem\Find_And_Change\FindAndChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>BetterVSTO_PPT_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E110DA4C9A992710850436526AF371CD5A6A5B09</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <!-- Include the build rules for a C# project. -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Include additional build rules for an Office application add-in. -->
+  <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- This section defines VSTO properties that describe the host-changeable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
+        <ProjectProperties HostName="PowerPoint" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="PowerPoint" Language="cs" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\PowerPoint\InstallRoot\Path#powerpnt.exe" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
+        <Host Name="PowerPoint" GeneratedCodeNamespace="BetterVSTO_PPT" IconIndex="0">
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
+        </Host>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Fody.6.4.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.4.0\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.6.4.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.4.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.3.3.3\build\PropertyChanged.Fody.props'))" />
+  </Target>
+</Project>
